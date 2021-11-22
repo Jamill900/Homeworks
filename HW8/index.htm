@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(90deg, rgba(2, 0, 36,1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+            
+        }
+        #text {
+            font: 1em/1.5 'Poppins';
+            width: 500px;
+            margin: auto;
+            padding: 50px;
+            background-color: rgba(0, 0, 0, .7);
+            border-radius: 20px;
+            color: #fff;
+
+        }
+        #search {
+            width: 500px;
+            margin: auto;
+        }
+        input {
+            width: 400px;
+            padding: 10px;
+            margin: 10px 5px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            color: white;
+            background: rgba(0, 0, 0, .7);
+            font-family: 'Poppins';
+        }
+        button{
+            padding: 12.5px 20px;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, .7);
+        }
+        i{
+            color: #fff
+        }
+        span{
+            background-color: rgba(0,255,255,.5);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="text" contenteditable="true">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacinia mauris sit amet est auctor hendrerit. Nunc fringilla sapien leo, sodales efficitur ligula elementum consequat. Ut vehicula tempus quam ut ornare. Etiam auctor consequat ante, a aliquam erat vehicula eget. Nam et rhoncus lectus. In fermentum lorem sed elementum sollicitudin. Praesent euismod id nibh sit amet semper. Integer nec dui at diam dictum placerat. Aenean ex velit, accumsan nec nisl vel, rhoncus suscipit tellus. In sit amet aliquam ante. Pellentesque in quam luctus, convallis diam vel, tempus nulla. Aenean eget nisi in augue bibendum maximus. Quisque condimentum, mauris sed fermentum vestibulum, diam felis laoreet augue, in aliquam turpis nisi nec ex.
+    </div>
+    <div id="search">
+        <input type="text" id="input">
+        <button onclick="find()"><i class="fas fa-search"></i></button>
+    </div>
+    <script>
+       let  text = document.getElementById('text'),
+            input = document.getElementById('input'),
+            txt = text.innerHTML;
+
+       function find(){
+        if(txt.includes(input.value)){
+            text.innerHTML = txt.replaceAll(input.value, '<span>' + input.value + '</span>');
+        } else alert("No such word found");
+       }
+
+    </script>
+</body>
+</html>

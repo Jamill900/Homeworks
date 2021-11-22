@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #2D3236;
+        }
+        #inform {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        ul{
+            list-style-type: none;
+            font-family: 'Poppins', sans-serif;
+        }
+        li{
+            padding: 20px;
+        }
+        p{
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            text-align: center;
+        }
+        #buttons{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        button {
+            font-family: 'Poppins', sans-serif;
+            margin: 20px;
+            padding: 20px;
+            color: white;
+            background-color: #1E252B;
+            outline: none;
+            border-radius: 15px;
+            border: none;
+            cursor: pointer;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="inform">
+        <img src="tesla.png" alt="tesla">
+        <ul id="infotable"></ul>
+    </div>
+    <div id="buttons">
+        <button onclick="getinfo()">Car Specifications</button>
+        <button onclick="getdistance()">Get Time for Given Distance</button>
+    </div>
+    <p id="timefordist"></p>
+    <script>
+        const infotable = document.getElementById("infotable");
+        timefordist = document.getElementById("timefordist");
+
+        let tesla = {manufacturer: 'Tesla', model: 'Model S', year: '2018', avgspeed: '95'}
+
+        function getinfo() {
+            infotable.innerHTML += '<li>Manufacturer: ' + tesla.manufacturer + '</li>';
+            infotable.innerHTML += '<li>Model: ' + tesla.model + '</li>';
+            infotable.innerHTML += '<li>Production Year: ' + tesla.year + '</li>';
+            infotable.innerHTML += '<li>Average Speed: ' + tesla.avgspeed + '</li>';
+        }
+
+        function getdistance() {
+            let distance = +prompt("Distance to Drive:");
+            let hours = Math.floor(distance / tesla.avgspeed);
+            let resthours = Math.floor(hours / 4) + hours
+            let minutes = Math.floor(((distance % tesla.avgspeed) * 60) / 120);
+            if (hours < 5) timefordist.innerHTML += "Tesla will spend " + hours + " hours and " + minutes + " minutes ";
+            else timefordist.innerHTML += "Tesla will spend " + resthours + " hours and " + minutes + " minutes ";
+        }
+    </script>
+</body>
+</html>

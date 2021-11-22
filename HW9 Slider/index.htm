@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Slider</title>
+	<style>
+		 #slider {
+                width: 90vw;
+                height: 50vh;
+                margin: 10vh auto;            }
+	</style>
+</head>
+<body>
+	<div id="slider"></div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script>
+		$(() => {
+			let images = ["img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg"];
+			let x = 0;
+
+			$("#slider")
+				.css({
+					position: 'relative',
+					overflow: 'hidden'
+				})
+				.append('<div id="current"></div>')
+				.append('<div id="next"></div>')
+                .append('<div id="tumbs"></div>')
+				.click((e) => {
+					if( e.pageX - $(window).width() / 2 > 0 ) { x++; change(1) }
+					else { x--; change(-1) }
+				})
+			$("#current, #next")
+				.css({
+					position: 'absolute',
+					width: '100%',
+					height: '100vh',
+					background: 'url("img/' + images[x] + '") center/cover'
+				})
+			$("#tumbs")
+                    .css({
+                        position: 'absolute',
+                        width: '100%',
+                        bottom: 0,
+                        textAlign: 'center',
+                        zIndex: 99
+                    });
+            images.forEach((img) => { 
+                $("#tumbs").append('<img src="img/' + img + '" />')
+            })
+            $("#tumbs>img")
+                    .css({
+                        width: '24px',
+                        height: '24px',
+                        borderRadius: '50%',
+                        border: '2px solid #fff',
+                        margin: '10px 5px'
+                    })
+                    .click(function(e) {
+                        e.stopPropagation();
+                        x = $(this).index();
+                        change()
+                    });
+
+                    change();
+
+			function change(dir = 1) {
+				if (x > images.length - 1) x = 0;
+				if (x < 0) x = images.length - 1;
+
+				$("#next")
+					.css({
+						left: dir * $("#slider").width(),
+						background: 'url("img/' + images[x] + '") center/cover'
+					})
+					.animate({left: 0})
+				$("#current").animate({
+					left: -dir * $("#slider").width()
+				}), function() {
+					$(this).css({
+						background: 'url("img/' + images[x] + '") center/cover',
+						left: 0
+					}).animate({width: '100%'})	
+				};
+
+				$("#tumbs>img").css({width: '24px', height: '24px'})
+				$("#tumbs>img").eq(x).css({width: "40px", height: "40px"})
+			}
+
+		})
+	</script>
+</body>
+</html>

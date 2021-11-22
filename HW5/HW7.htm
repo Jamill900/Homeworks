@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+    </head>
+    <body>
+    	
+    	<input type="text" id="name" placeholder="Name">
+    	<button onclick="fontchange()">OK</button>
+        <div id="test"></div>
+
+        <input type="text" id="fname" placeholder="Name">
+    	<button onclick="colorchange()">OK</button>
+        <div id="ans" style="font-size: 2em;"></div>
+
+             
+        <script>
+            //1
+            const test = document.getElementById("test");
+            let name = document.getElementById("name");
+           
+            function fontchange() {
+                let n = name.value.toUpperCase();
+                let res = "";
+                let end = "";
+
+            	for (let i = 0; i < n.length; i++) {
+                    if (i > 0) res = n.slice(0, i) + '<span style="font-size: 2em">' + n[i] + '</span>' + n.slice(i+1);
+                	else res = '<span style="font-size: 2em">' + n[i] + '</span>' + n.slice(i+1);
+                    end += res + '<br />';
+            	}
+                test.innerHTML = end + '<br />';
+            }
+
+            //2
+            const ans = document.getElementById("ans");
+            let fname = document.getElementById("fname");
+           
+            function colorchange() {
+                let m = fname.value.toUpperCase();
+                let answer = "";
+                let result = "";
+
+            	for (let i = 0; i < m.length; i++) {
+                    let color = rand(0, 16000000);
+                    answer += '<span style="color: #' + color.toString(16) + '">' + m[i] + '</span>';
+            	}
+                ans.innerHTML = answer + '<br />';
+            }
+
+            function rand(min, max) {
+                return Math.floor(Math.random() * (max - min + 1) ) + min;
+            }
+           
+            
+        </script>
+    </body>
+</html>

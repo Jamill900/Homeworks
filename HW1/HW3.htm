@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+    </head>
+    <body>
+ 
+        <h1>Test</h1>
+        <h3>What does CSS stand for? (2 points)</h3>
+        <select name="test" id="ansf">
+            <option>Choose your answer:</option>
+            <option>Creative Style Sheet</option>
+            <option>Colorful Style Sheet</option>
+            <option>Cascading Style Sheet</option>
+        </select>
+        <h3>Which HTML tag is used to define an internal style sheet? (2 points)</h3>
+        <select name="test" id="anss">
+            <option>Choose your answer:</option>
+            <option>style</option>
+            <option>script</option>
+            <option>css</option>
+        </select>
+        <h3>Which CSS property is used to change the text color of an element? (2 points)</h3>
+        <select name="test" id="anst">
+            <option>Choose your answer:</option>
+            <option>color</option>
+            <option>text-color</option>
+            <option>fgcolor</option>
+        </select>
+        <h1><button onclick="submit()">Submit</button></h1>
+        <span id="result"></span>
+
+
+        <script>
+        
+            const ansf = document.getElementById("ansf")
+            const anss = document.getElementById("anss")
+            const anst = document.getElementById("anst")
+            const result = document.getElementById("result")
+
+            function submit() {
+            
+            if (ansf.value == "Cascading Style Sheet" && anss.value == "style" && anst.value == "color") result.innerHTML = ("Score: 6")
+            else if (ansf.value == "Cascading Style Sheet" && anss.value != "style" && anst.value != "color") result.innerHTML = ("Score: 2")
+            else if (ansf.value != "Cascading Style Sheet" && anss.value == "style" && anst.value != "color") result.innerHTML = ("Score: 2")
+            else if (ansf.value != "Cascading Style Sheet" && anss.value != "style" && anst.value == "color") result.innerHTML = ("Score: 2")
+            else if (ansf.value != "Cascading Style Sheet" && anss.value != "style" && anst.value != "color") result.innerHTML = ("Score: 0")
+            else if (ansf.value == "Cascading Style Sheet" && anss.value == "style" && anst.value != "color") result.innerHTML = ("Score: 4")
+            else if (ansf.value != "Cascading Style Sheet" && anss.value == "style" && anst.value == "color") result.innerHTML = ("Score: 4")
+            else if (ansf.value == "Cascading Style Sheet" && anss.value != "style" && anst.value == "color") result.innerHTML = ("Score: 4")
+            }
+
+            
+
+        </script>
+    </body>
+</html>

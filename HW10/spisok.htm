@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spisok</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body{
+            font-family: 'Poppins';
+            color: white;
+            background-color: #121212;
+        }
+        ul {
+            list-style: none;
+            padding: 30px;
+        }
+        #card {
+            background-color: #333;
+            width: 300px;
+            border-radius: 25px;
+        }
+        button {
+            background-color: #222;
+            color: white;
+            outline: none;
+            border: 0;
+            padding: 10px 30px;
+            border-radius: 15px;
+            margin: 0 30px 0 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="card">
+        <ul id="spisok"></ul>
+    </div>
+    <button onclick="add2List()">Add</button>
+    <button onclick="boughtProduct()">Buy</button>
+    
+    <script>
+        const spisok = document.getElementById("spisok")
+        let list = [
+                    {name: "Sausages", quantity: 1, status: 0},
+                    {name: "Eggs", quantity: 10, status: 1},
+                    {name: "Cheese", quantity: 2, status: 0},
+                    {name: "Cucumber", quantity: 3, status: 1},
+                    {name: "Meat", quantity: 4, status: 0},
+                    {name: "Milk", quantity: 5, status: 1}
+                ]
+
+        showList();
+    
+        function showList() {
+            spisok.innerHTML = 
+                list
+                    .sort((a, b) => a.status - b.status)
+                    .reduce((code, item) => code + "<li>" + item.name + " (" + item.quantity + ") </li>", "");
+        }
+
+        function add2List() {
+            let name = prompt("Anything else?");
+            let quantity = +prompt("Quantity:");
+
+            let product = list.find(item => item.name == name)
+
+            if( product ) {
+                product.quantity += quantity;
+            }
+            else {
+                list.push({name: name, quantity: quantity, status: 1})
+            }
+            showList();
+        }
+
+        function boughtProduct() {
+            let name = prompt("What would you like to buy?")
+            let product = list.find(item => item.name == name)
+
+            if(product) product.status = 1; 
+
+            showList();
+        }
+    </script>
+</body>
+</html>

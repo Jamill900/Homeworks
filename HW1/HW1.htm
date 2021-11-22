@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+    </head>
+    <body>
+ 
+        <script>		
+            
+            //1
+
+            let age = prompt("How old are you?")
+
+            alert(  (age < 0) ? "Are you sure?" :
+                    (age < 12) ? "Child" : 
+                    (age < 18) ? "Teenager" :
+                    (age < 60) ? "Adult" : 
+                    (age < 120) ? "Old"  : "Are you sure?");
+
+            
+            //2
+            
+            let key = prompt("Number from 0 to 9")
+
+            alert ( (key == 0) ? ")" :
+                    (key == 1) ? "!" :
+                    (key == 2) ? "@" :
+                    (key == 3) ? "#" :
+                    (key == 4) ? "$" :
+                    (key == 5) ? "%" :
+                    (key == 6) ? "^" :
+                    (key == 7) ? "&" :
+                    (key == 8) ? "*" :
+                    (key == 9) ? "(" :
+                    (key < 0 || key > 9) ? "Invalid Input" : "Invalid Input");
+
+            //3
+
+            let n = prompt("Input three-digit number:")
+            let a = Math.floor(n / 100); 
+            let b = Math.floor(n / 10 % 10);
+            let c = n % 10;
+
+            alert( (a == b || a == c || b == c) ? "Yes, there are same digits in this number" : "No, there isn't same digits in this number")
+
+            //4
+
+            let year = prompt("Input Year:")
+
+            alert (((year % 400 == 0)|| (year % 4 == 0 && year % 100 != 0)) ? "Високосный год" : "Невисокосный год")
+
+            //5
+
+            let m = prompt("Input three-digit number:")
+            let d = Math.floor(m / 10000); 12345
+            let e = Math.floor(m / 1000 % 10);
+            let f = Math.floor(m / 10 % 10);
+            let g = m % 10;
+
+            alert((d == g && e == f) ? "Yes" : "No")
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform</title>
+    <style>
+        #container {
+            width: 600px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="press()">PRESS</button>
+    <script>
+        let text = document.getElementById("text");
+        let styles = [
+            {"font-family" : "Arial",           color: "black",     "text-align" : "left"},
+            {"font-family" : "Verdana",         color: "red",       "text-align" : "center"},
+            {"font-family" : "Tahoma",          color: "orange",    "text-align" : "right"},
+            {"font-family" : "Helvetica Neue",  color: "yellow",    "text-align" : "left"},
+            {"font-family" : "Georgia",         color: "brown",     "text-align" : "center"},
+            {"font-family" : "Garamond",        color: "green",     "text-align" : "right"}
+        ]
+        
+        function press() {
+            let r = rand(0, 5);
+            let style = styles[r];
+            let text = "";
+
+            for (prop in style) {
+                text += prop + ":" + style[prop] + ";";
+            }
+
+            document.getElementsByTagName("body")[0].innerHTML = "";
+            document.write('<button onclick ="press()">PRESS</button>');
+            document.write('<p style="' + text + '">Hakuna Matata</p>')
+            
+        }
+
+        function rand(min, max){
+                return Math.floor(Math.random() * (max - min)) + min;
+            }
+
+    </script>
+</body>
+</html>

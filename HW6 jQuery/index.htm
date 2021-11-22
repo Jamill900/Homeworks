@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>jQuery</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+        <header>
+            <label>Electric Cars</label>
+            <button class="hamburger">&#9776</button>
+            <button class="close">&#735</button>
+        </header>
+
+        <div class="menu">
+            <ul>
+                <a href=""><li>Audi E-TRON</li></a>
+                <a href=""><li>BMW I8</li></a>
+                <a href=""><li>Mercedes EQC</li></a>
+                <a href=""><li>Porsche Taycan</li></a>
+                <a href=""><li>Tesla Model X</li></a>
+            </ul>
+        </div>
+
+
+        <script>
+            $( document ).ready(function() {
+                $( ".close" ).hide();
+                $( ".menu" ).hide();
+                $( ".hamburger" ).click(function() {
+                    $( ".menu" ).slideToggle( "slow", function() {
+                        $( ".hamburger" ).hide();
+                        $( ".close" ).show();
+                    });
+                });
+
+                $( ".close" ).click(function() {
+                    $( ".menu" ).slideToggle( "slow", function() {
+                        $( ".close" ).hide();
+                        $( ".hamburger" ).show();
+                    });
+                });
+
+            });
+        </script>
+    </body>
+</html>

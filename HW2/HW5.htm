@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+        <style>
+            #tgrid {display: flex; flex-direction: row;}
+            table {border-collapse: collapse; margin: 10px;}
+            td { width: 50px; height: 50px; border: 2px solid black; text-align: center;}
+            .bg_color {background-color: green;}
+        </style>
+    </head>
+    <body>
+        <div id="tgrid">
+            <table id="tbl"></table>
+            <table id="tbl1"></table>
+            <table id="tbl2"></table>
+            <table id="tbl3"></table>
+        </div>
+        <div id="tgrid">
+            <table id="tbl4"></table>
+            <table id="tbl5"></table>
+            <table id="tbl6"></table>
+        </div>
+
+        <script>
+            const tbl = document.getElementById("tbl");
+            let kod = "";
+            let x = '';
+
+            const tbl1 = document.getElementById("tbl1");
+            let cod = "";
+
+            const tbl2 = document.getElementById("tbl2");
+            let cdd = "";
+
+            const tbl3 = document.getElementById("tbl3");
+            let ccd = "";
+
+            const tbl4 = document.getElementById("tbl4");
+            let ccdd = "";
+
+            const tbl5 = document.getElementById("tbl5");
+            let kkd = "";
+
+            const tbl6 = document.getElementById("tbl6");
+            let kkdd = "";
+
+            for(let j = 1; j <= 4; j++){
+                kod += "<tr>";
+                for(let i = 1; i <= 4; i++) {
+                    kod += (i == 1 || i == 4 || j == 1 || j == 4) ? '<td class="bg_color"></td>' : '<td></td>';
+                }
+                kod += "</tr>";
+            } 
+
+
+            for(let j = 1; j <= 4; j++){
+                cod += "<tr>";
+                for(let i = 1; i <= 4; i++){
+                    cod += (i == 1 || i == 3) ? '<td class="bg_color"></td>' : '<td></td>';
+
+                }
+                cod += "</tr>"
+            }
+
+            
+            for(let j = 1; j <= 4; j++){
+                cod += "<tr>";
+                for(let i = 1; i <= 4; i++){
+                    cdd += ((i + j) % 2) ? '<td></td>' : '<td class="bg_color"></td>';
+                }
+                cdd += "</tr>"
+            }
+
+
+            for(let j = 1; j <= 4; j++){
+                ccd += "<tr>";
+                for(let i = 1; i <= 4; i++){
+                    ccd += (j == 1 || j == 3) ? '<td class="bg_color"></td>' : '<td></td>';
+
+                }
+                ccd += "</tr>"
+            }
+
+            for(let j = 1; j <= 4; j++){
+                ccdd += "<tr>";
+                for(let i = 1; i <= 4; i++){
+                    ccdd += (i + j <=5) ? '<td class="bg_color"></td>' : '<td></td>';
+
+                }
+                ccdd += "</tr>"
+            }
+
+
+
+            for(let j = 1; j <= 4; j++){
+                kkd += "<tr>";
+                for(let i = 1; i <= 4; i++){
+                    kkd += (i + j >=5) ? '<td class="bg_color"></td>' : '<td></td>';
+
+                }
+                kkd += "</tr>"
+            }
+
+            for(let j = 1; j <= 8; j++){
+                kkdd += "<tr>";
+                for(let i = 1; i <= 8; i++){
+                    kkdd += (i + j >= 9 && i <= j || i + j <= 9 && i >= j) ? '<td class="bg_color"></td>' : '<td></td>';
+
+                }
+                kkdd += "</tr>"
+            }
+            
+            tbl.innerHTML = kod;
+            tbl1.innerHTML = cod;
+            tbl2.innerHTML = cdd;
+            tbl3.innerHTML = ccd;
+            tbl4.innerHTML = ccdd;
+            tbl5.innerHTML = kkd;
+            tbl6.innerHTML = kkdd;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+    </head>
+    <body>
+ 
+        <h1>Converter</h1>
+        <input id="dollars" type="text" placeholder="USD">
+        <select name="currency" id="currency">
+            <option>EUR</option>
+            <option>UAN</option>
+            <option>AZN</option>
+        </select>
+        <button onclick="convert()">CONVERT</button>
+        <span id="result"></span>
+
+        <h1>Discount</h1>
+        <input type="text" id="price" placeholder="Product Price">
+        <button onclick="sale()">DISCOUNT</button>
+        <span id="ans"></span>
+
+        <h1>Square and Circle</h1>
+        <input type="text" id="circle" placeholder="Length of a Circle">
+        <input type="text" id="square" placeholder="Perimeter of a Square">
+        <button onclick="check()">CHECK</button>
+        <span id="answer"></span>
+        <script>		
+            
+            //6
+            const dollars = document.getElementById("dollars")
+            const currency = document.getElementById("currency")
+            const result = document.getElementById("result")
+
+            function convert() {
+                if (currency.value == "EUR") result.innerHTML = (dollars.value * 0.85)
+                else if (currency.value == "UAN") result.innerHTML = (dollars.value * 6.55)
+                else if (currency.value == "AZN") result.innerHTML = (dollars.value * 0.70)
+            }
+            
+            //7
+
+            const price = document.getElementById("price")
+            const ans = document.getElementById("ans")
+
+            function sale() {
+                if (price.value < 200) ans.innerHTML = ("No Discount For You")
+                else if (price.value >= 200 && price.value < 300) ans.innerHTML = (price.value * 0.97)
+                else if (price.value >= 300 && price.value < 500) ans.innerHTML = (price.value * 0.95)
+                else ans.innerHTML = (price.value * 0.93)
+            }
+
+            //8
+
+            const circle = document.getElementById("circle")
+            const square = document.getElementById("square")
+            const answer = document.getElementById("answer")
+            
+            function check() {
+                if ((circle.value / Math.PI) <= (square.value / 4)) answer.innerHTML = ("True");
+                else answer.innerHTML = ("False")
+            }
+
+        </script>
+    </body>
+</html>

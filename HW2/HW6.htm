@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+        <style>
+            #tgrid {display: flex; flex-direction: row;}
+            table {border-collapse: collapse; margin: 10px;}
+            td { width: 50px; height: 50px; border: 2px solid black; text-align: center;}
+            .bg_color {background-color: green;}
+        </style>
+    </head>
+    <body>
+        <div id="tgrid">
+            <table id="tbl"></table>
+            <table id="tbl1"></table>
+            <table id="tbl2"></table>
+            <table id="tbl3"></table>
+        </div>
+        <div id="tgrid">
+            <table id="tbl4"></table>
+            <table id="tbl5"></table>
+            <table id="tbl6"></table>
+            <table id="tbl7"></table>
+        </div>
+
+        <script>
+            const tbl = document.getElementById("tbl");
+            let kod = "";
+            let x = document.getElementById("x");
+            let y = document.getElementById("y");
+
+            const tbl1 = document.getElementById("tbl1");
+            let cod = "";
+
+            const tbl2 = document.getElementById("tbl2");
+            let cdd = "";
+
+            const tbl3 = document.getElementById("tbl3");
+            let ccd = "";
+
+            const tbl4 = document.getElementById("tbl4");
+            let ccdd = "";
+            let a = 1;
+
+            const tbl5 = document.getElementById("tbl5");
+            let kkd = "";
+            let b = 1;
+
+            const tbl6 = document.getElementById("tbl6");
+            let kkdd = "";
+            let c = 1;
+
+            const tbl7 = document.getElementById("tbl7");
+            let kdd = "";
+            let d = 1;
+            let f = 1;
+
+            for(let j = 1; j <= 5; j++){
+                kod += "<tr>";
+                for(let i = 1; i <= 5; i++) {
+                    x += 1;
+                    kod += "<td>" + x + "</td>";
+                }
+                kod += "</tr>";
+            } 
+
+
+            for(let j = 1; j <= 5; j++){
+                cod += "<tr>";
+                for(let i = 1; i <= 5; i++){
+                    x = i + j - 1;
+                    cod += "<td>" + x + "</td>";
+                }
+                cod += "</tr>";
+            }
+
+            
+            for(let j = 1; j <= 5; j++){
+                cdd += "<tr>";
+                for(let i = 1; i <= 5; i++){
+                    cdd += (i + j) % 2 ? "<td>1</td>" : "<td>0</td>"
+                }
+                cdd += "</tr>";
+            }
+
+            for(let j = 1; j <= 5; j++){
+                ccd += "<tr>";
+                for(let i = 1; i <= 5; i++){
+                    y += 1;
+                    ccd += (i + j) % 2 ? "<td></td>" : "<td>" + y + "</td>";
+                }
+                ccd += "</tr>";
+            }
+
+            for(let j = 1; j <= 5; j++){
+                ccdd += "<tr>";
+                for(let i = 1; i <= 5; i++){
+                    x = i + j - a;
+                    ccdd += "<td>" + x + "</td>";
+
+                }
+                a += 1;
+                ccdd += "</tr>";
+            }
+
+            for(let j = 1; j <= 5; j++){
+                kkd += "<tr>";
+                for(let i = 1; i <= 5; i++){
+                    x = i + j - b;
+                    kkd += (i == 2 || i == 4) ? "<td></td>" : "<td>" + x + "</td>";
+
+                }
+                b += 1;
+                kkd += "</tr>";
+            }
+
+            for(let j = 1; j <= 5; j++){
+                kkdd += "<tr>";
+                for(let i = 1; i <= 5; i++){
+                    x = i + j - c;
+                    kkdd += (i > j) ? "<td></td>" : "<td>" + x + "</td>";
+
+                }
+                c += 1;
+                kkdd += "</tr>";
+            }
+
+            for(let i = 1; i <= 7; i++){
+                kdd += "<tr>"
+                for (let j = 1; j <= 7; j++){
+                    if (j <= 4) x = i + j - d;
+                    else {
+                        x = i - j + f;
+                    } 
+                    kdd += (i + j < 8 && i > j || i + j > 8 && i < j) ? "<td></td>" : "<td>" + x + "</td>";
+                }
+                if (i >= 4)
+                {
+                    d += 0;
+                }
+                else {
+                    d += 2;
+                }
+
+                kdd += "</tr>";
+            }
+            
+            tbl.innerHTML = kod;
+            tbl1.innerHTML = cod;
+            tbl2.innerHTML = cdd;
+            tbl3.innerHTML = ccd;
+            tbl4.innerHTML = ccdd;
+            tbl5.innerHTML = kkd;
+            tbl6.innerHTML = kkdd;
+            tbl7.innerHTML = kdd;
+        </script>
+    </body>
+</html>
